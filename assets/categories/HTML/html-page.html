@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Page</title>
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px;
+            justify-content: center;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="grid-column: span 3; text-align: center;">HTML/CSS PROJECT</h1>
+        <a href="../HTML/movies.html">
+            <div class="project-card">
+                <h3>Movies</h3>
+            </div>
+        </a>
+        <a href="../HTML/form.html/formone.html">
+            <div class="project-card">
+                <h3>Form</h3>
+            </div>
+        </a>
+        <a href="./">
+            <div class="project-card">
+                <h3>Animation</h3>
+            </div>
+        </a>
+        <a href="../CSS/chess.html">
+            <div class="project-card">
+                <h3>Chess</h3>
+            </div>
+        </a>
+
+     
+    </div>
+</body>
+
+</html>

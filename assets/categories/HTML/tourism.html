@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Layout</title>
+    <style>
+        table {
+            width: 90vw;
+            height: 150vh;
+            background-color: lightblue;
+            margin-left: 5vw;
+        }
+
+        tr {
+            width: 100%;
+            background-color: lightcoral;
+            border-style: none;
+        }
+
+        .row-one {
+            height: 100px;
+        }
+
+        .row-two {
+            height: 20vh;
+        }
+
+        .row-three {
+            height: 20vh;
+        }
+
+        .row-four {
+            height: 40vh;
+        }
+
+        .row-one-colunm {
+            width: 25%;
+            height: 100px;
+            background-image: url(../assets/images/ind-flag.jpg);
+            border-style: solid;
+            border-width: 2px;
+        }
+
+        .row-two-colunm {
+            width: 25%;
+            height: 10vh;
+            background-color: white;
+            border-style: solid;
+            border-width: 2px;
+        }
+
+        .row-three-colunm {
+            width: 25%;
+            height: 40vh;
+            background-color: white;
+            border-style: solid;
+            border-width: 2px;
+        }
+
+        .row-four-colunm {
+            width: 25%;
+            height: 20vh;
+            background-color: white;
+            border-style: solid;
+            border-width: 2px;
+        }
+
+        .row-one-colunm-image {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .row-one-colunm-image-two {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+
+        }
+
+        .one {
+            font-size: 40px;
+            text-align: left;
+            padding: 20px;
+            color: black;
+            margin-bottom: 70px;
+        }
+
+        .two {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: right;
+            text-align: right;
+
+
+        }
+
+        .three {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: right;
+            text-align: left;
+            padding: 5px;
+
+        }
+    </style>
+</head>
+
+<body style="margin: 0;">
+    <table>
+        <tr class="row-one">
+            <td class="row-one-colunm">
+                <div class="row-one-colunm-image">
+                    <img src="../assets/images/temple.jpeg" height="110px" width="310px">
+                </div>
+            </td>
+            <td class="row-one-colunm">
+                <div class="row-one-colunm-image-two">
+                    <img src="../assets/images/Taj_mahal.jpg" height="110px" width="310px">
+                </div>
+
+            </td>
+            <td class="row-one-colunm">
+                <div>
+                    <img src="../assets/images/india-gate.webp" height="110px" width="310px">
+                </div>
+            </td>
+            <td class="row-one-colunm">
+                <img src="../assets/images/fort.avif" height="110px" width="310px">
+            </td>
+        </tr>
+        <tr class="row-two">
+            <td class="row-two-colunm" rowspan="2" colspan="2">
+                <div>
+                    <IMG src="../assets/images/India-Cultural-Tours.jpg" height="550px" width="638px">
+                </div>
+            </td>
+            <td class="row-two-colunm" colspan="2">
+                <p>
+                <h1 style="text-align: center; margin-bottom: 20px;">TOURISM IN INDIA 🇮🇳</h1>
+                <br />
+                <h1 style="margin-left: 10px;">NAMASTE 🙏🏻</h1>
+                <h2 style="padding: 20px;">GROWTH STORY OF TRAVEL & TOURISM INDUSTRY IN INDIA.</h2>
+                </p>
+            </td>
+        </tr>
+        <tr class="row-three">
+            <td class="row-two-colunm" colspan="2">
+            <img src="../assets/images/India-tourism_600.jpg" height="220px" width="600px">
+            </td>
+        </tr>
+        <tr class="row-four">
+
+            <td class="row-three-colunm" colspan="4">
+                <div class="two">
+                    <b>
+                        <p class="one">
+                            Tourist destinations and
+                            <br />
+                            development of tourism in
+                            <br />
+                            India.
+                        </p>
+                    </b>
+                    <img src="../assets/images/incredible-india.jpg" height="300px" width="650px">
+                </div>
+        <tr class="row-four">
+            <td class="row-three-colunm" colspan="4">
+                <div class="three">
+                    <img src="../assets/images/tourism-in-india-ele.jpg" height="300px" width="650px">
+                    <b>
+                        <p style="font-size: 25px; margin-left: 10px; margin-bottom: 50px;">
+                            India is a large market for travel and tourism. It offers a diverse portfolio of niche
+                            tourism
+                            products - cruises, adventure, medical, wellness, sports, MICE, eco-tourism, film, rural and
+                            religious tourism. India has been recognized as a destination for spiritual tourism for
+                            domestic
+                            and international tourists.
+                        </p>
+                    </b>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
