@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-Page</title>
+    <link rel="stylesheet" href="../../categories/CSS/login-page.css" />
+ 
+    <!--  Script -->
+    <script>
+        let counter = 0;
+        function login() {
+            let admin = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            let output = "";
+
+            // Check if the login credentials are correct
+            if (admin === "admin" && password === "technology") {
+                output = "Login successful 👍";
+                alert("Login successful 👍");
+            }
+            // Check if the login credentials are incorrect
+            else if (admin !== "admin" && password !== "technology") {
+                output = "Your Credentials are Incorrect.";
+                alert("Your Credentials are Incorrect");
+            }
+            // Check if password is incorrect
+            else if (password !== "technology") {
+                output = "Your password is not correct.";
+                alert("Your password is not correct.");
+            }
+            // Check if username is incorrect
+            else if (admin !== "admin") {
+                output = "Your admin username is not correct.";
+                alert("Your admin username is not correct.");
+            }
+            // Check if the maximum number of attempts is reached
+            else if (counter >= 2) {
+                output = "You have reached the maximum number of attempts.";
+                alert("You have reached the maximum number of attempts.");
+                document.getElementById("username").hidden = true;
+                document.getElementById("password").hidden = true;
+            }
+            else {
+                alert('Invalid User and Password')
+            }
+            // Increment counter after checking conditions
+            counter++;
+
+            // Display the output message
+            document.getElementById("display").innerHTML = output;
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Login</h1>
+
+        <br />
+        <!-- first input -->
+        <label for="text" id="display"></label>
+        <input type="text" id="username" placeholder="User Name">
+        <br />
+        <br />
+        <!-- second input -->
+        <label for="password"></label>
+        <input type="password" id="password" placeholder="Password">
+        <br />
+        <br />
+        <!-- button -->
+        <button type="button" onclick="login()">Login</button>
+    </div>
+</body>
+
+</html>
