@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Even or Odd Checker</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928DAB);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      font-size: 48px;
+      color: #00e5ff;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .box {
+      background-color: #3333335f;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      white-space: pre-line;
+      width: 450px;
+      min-height: 200px;
+      box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+      text-align: left;
+    }
+
+    .box-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #ffea00;
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      color: #e0e0e0;
+    }
+
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #00e5ff;
+      color: #1f1c2c;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    #result {
+      font-size: 24px;
+      color: #ffea00;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Javascript Project</h1>
+  </header>
+
+  <div class="container">
+    <div class="box">
+      <div class="box-title">Enter a Number</div>
+      <input type="number" id="numInput" placeholder="Enter a number" />
+      <button onclick="checkNumber()">Check</button>
+      <div id="result">Result will be shown here</div>
+    </div>
+
+    <div class="box">
+      <div class="box-title">JavaScript Code</div>
+      <code>
+        function checkNumber() {<br>
+          &nbsp;&nbsp;let num = parseInt(document.getElementById("numInput").value);<br>
+          &nbsp;&nbsp;let result = (num % 2 === 0) ? "Even" : "Odd";<br>
+          &nbsp;&nbsp;document.getElementById("result").innerHTML = num + " is " + result;<br>
+        }
+      </code>
+    </div>
+  </div>
+
+  <script>
+    function checkNumber() {
+      let num = parseInt(document.getElementById("numInput").value);
+      let result = (num % 2 === 0) ? "Even" : "Odd";
+      document.getElementById("result").innerHTML = `${num} is ${result}`;
+    }
+  </script>
+
+</body>
+</html>
