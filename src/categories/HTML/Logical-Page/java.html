@@ -29,11 +29,13 @@
         .container {
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             justify-content: center;
             gap: 30px;
             width: 100%;
             max-width: 1000px;
+            margin: 0 auto;
+
         }
 
         .box {
@@ -42,7 +44,7 @@
             border-radius: 10px;
             font-size: 16px;
             white-space: pre-line;
-            width: 450px;
+            width: 420px;
             min-height: 200px;
             box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
             text-align: left;
@@ -65,7 +67,6 @@
 
     <header>
         <h1>Java : Area of Circle</h1>
-        
     </header>
 
     <div class="container">
@@ -74,33 +75,31 @@
             <code>
 import java.util.Scanner;
 
-class EvenOdd {
+public class AreaOfCircle {
     public static void main(String[] args) {
-        Scanner number = new Scanner(System.in);
-
-        System.out.println("Enter a number:");
-        int check = number.nextInt();
-
-        if ((check & 1) == 0) {
-            System.out.println("Number is even: " + check);
-        } else {
-            System.out.println("Number is odd: " + check);
-        }
-
-        number.close();
+        Scanner scanner = new Scanner(System.in);
+        
+       
+        int radius = 10;
+    
+        double pi = 3.14;
+      
+        double area = pi * radius * radius;
+        
+     
+      System.out.printf("Area of circle is: %.2f", area);
+        
+      
+        scanner.close();
     }
 }
             </code>
         </div>
         <div class="box">
             <div class="box-title">Output</div>
-            <code>Enter a number:
-10
-Number is even: 10</code>
+            <code>Area of circle is: 314.00</code>
         </div>
     </div>
-
-
 
 </body>
 
