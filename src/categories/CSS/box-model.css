@@ -1,0 +1,26 @@
+ /* Container */
+ .container {
+    background-color: lightblue;
+    height: 80vh;
+    width: 60vw;
+    padding: 25px;
+    margin-left: 200px;
+    margin-top: 50px;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    border: solid;
+}
+
+/* Image */
+img {
+    float: left;
+    height: 150px;
+    width: 150px;
+}
+
+h1 {
+    text-align: center;
+    color: darkblue;
+    margin: bottom 150px;
+}

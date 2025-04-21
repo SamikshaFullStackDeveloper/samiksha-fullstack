@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928DAB);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            color: #00e5ff;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .box {
+            background-color: #3333335f;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            white-space: pre-line;
+            width: 450px;
+            min-height: 200px;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+            text-align: left;
+        }
+
+        .box-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #ffea00;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Java Project</h1>
+        
+    </header>
+
+    <div class="container">
+        <div class="box">
+            <div class="box-title">Input</div>
+            <code>
+import java.util.Scanner;
+
+class EvenOdd {
+    public static void main(String[] args) {
+        Scanner number = new Scanner(System.in);
+
+        System.out.println("Enter a number:");
+        int check = number.nextInt();
+
+        if ((check & 1) == 0) {
+            System.out.println("Number is even: " + check);
+        } else {
+            System.out.println("Number is odd: " + check);
+        }
+
+        number.close();
+    }
+}
+            </code>
+        </div>
+        <div class="box">
+            <div class="box-title">Output</div>
+            <code>Enter a number:
+10
+Number is even: 10</code>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

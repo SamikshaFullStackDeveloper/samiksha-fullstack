@@ -1,0 +1,15 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+body {
+    background-image: url(../../../src/assets/images/scene-with-house-garden_1308-97666.jpg);
+
+    width: 100vw;
+    background-size: cover;
+}
+
+.main {
+    margin-top: 25%;
+}
