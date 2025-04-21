@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Area of Circle in JavaScript</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928DAB);
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      font-size: 48px;
+      color: #00e5ff;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      width: 100%;
+      max-width: 1000px;
+    }
+    .box {
+    background-color: #3333335f;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 450px;
+    min-height: 200px;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+    text-align: left;
+    overflow-x: auto; 
+  }
+
+  .box-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffea00;
+  }
+
+    code, pre {
+      font-family: 'Courier New', monospace;
+      color: #e0e0e0;
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      margin: 0;
+     white-space: pre; 
+    overflow-x: auto;
+   
+    }
+
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #00e5ff;
+      color: #1f1c2c;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    #result {
+      font-size: 22px;
+      color: #ffea00;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>JavaScript: Area of Circle</h1>
+  </header>
+
+  <div class="container">
+    <!-- Input and Output Section -->
+    <div class="box">
+      <div class="box-title">Enter Radius</div>
+      <input type="number" id="radiusInput" placeholder="Enter radius" />
+      <button onclick="calculateArea()">Calculate</button>
+      <div id="result">Area will be shown here</div>
+    </div>
+
+    <!-- Code Display Section -->
+    <div class="box">
+      <div class="box-title">JavaScript Code</div>
+      <pre><code>function calculateArea() {
+  let radius = parseFloat(document.getElementById("radiusInput").value);
+  if (isNaN(radius)) {
+    alert("Please enter a valid radius!");
+    document.getElementById("result").innerText = "Invalid radius!";
+    console.log("Invalid input");
+    return;
+  }
+  let pi = 3.14;
+  let area = pi * radius * radius;
+  let output = "Area of circle is: " + area.toFixed(2);
+  document.getElementById("result").innerText = output;
+  alert(output);
+  console.log(output);
+}</code></pre>
+    </div>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    function calculateArea() {
+      let radius = parseFloat(document.getElementById("radiusInput").value);
+      if (isNaN(radius)) {
+        alert("Please enter a valid radius!");
+        document.getElementById("result").innerText = "Invalid radius!";
+        console.log("Invalid input");
+        return;
+      }
+      let pi = 3.14;
+      let area = pi * radius * radius;
+      let output = `Area of circle is: ${area.toFixed(2)}`;
+      document.getElementById("result").innerText = output;
+      alert(output);
+      console.log(output);
+    }
+  </script>
+
+</body>
+</html>

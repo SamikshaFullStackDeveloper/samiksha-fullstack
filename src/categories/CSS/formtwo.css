@@ -1,0 +1,9 @@
+.main {
+    height: 88vh;
+    width: 80vw;
+    border: solid;
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-image: url(../../../src/assets/images/wall_paper.jpg);
+    margin-top: 20px;
+}
