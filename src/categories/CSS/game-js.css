@@ -1,0 +1,81 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(0, 0, 0, 0.935); 
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.1); 
+}
+
+.container {
+  background: linear-gradient(135deg, #1f1c2c, #8da5ab);
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(141, 165, 171, 0.2);
+  text-align: center;
+  height: 70%;
+  width: 70%;
+  color: #f1f1f1; 
+  backdrop-filter: blur(10px);
+
+ 
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 32px;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+.buttons button {
+  margin: 10px;
+  padding: 15px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(145deg, #4facfe, #00f2fe); 
+  color: white;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttons button:hover {
+  background: linear-gradient(145deg, #00f2fe, #4facfe);
+  transform: scale(1.05);
+}
+
+#result {
+  margin-top: 30px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+#score {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #dcdcdc;
+}
+
+.reset {
+  margin-top: 25px;
+  padding: 12px 24px;
+  background: #ff5f6d;
+  background: linear-gradient(145deg, #ff5f6d, #ffc371);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.reset:hover {
+  transform: scale(1.05);
+  background: linear-gradient(145deg, #ffc371, #ff5f6d);
+}
