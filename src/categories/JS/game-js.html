@@ -1,0 +1,79 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="../../../src/categories/CSS/game-js.css">
+    </head>
+
+    <body>
+
+
+        <div class="container">
+            <h1>Rock, Paper, Scissors</h1>
+            <p>Choose your move:</p>
+
+            <div class="buttons">
+                <button onclick="playRound('rock')">🪨 Rock</button>
+                <button onclick="playRound('paper')">📄 Paper</button>
+                <button onclick="playRound('scissors')">✂️ Scissors</button>
+            </div>
+
+            <div id="result"></div>
+            <div id="score">
+                Wins: 0 | Losses: 0 | Ties: 0
+            </div>
+
+            <button class="reset" onclick="resetGame()">Reset Game</button>
+        </div>
+
+        <script>        
+            let wins = 0;
+            let losses = 0;
+            let ties = 0;
+
+            function getComputerMove() {
+                const moves = ["rock", "paper", "scissors"];
+                return moves[Math.floor(Math.random() * 3)];
+            }
+
+            function playRound(userMove) {
+                const computerMove = getComputerMove();
+                const resultDiv = document.getElementById("result");
+
+                if (userMove === computerMove) {
+                    resultDiv.textContent = `Computer chose ${computerMove}. It's a tie!`;
+                    ties++;
+                } else if (
+                    (userMove === "rock" && computerMove === "scissors") ||
+                    (userMove === "paper" && computerMove === "rock") ||
+                    (userMove === "scissors" && computerMove === "paper")
+                ) {
+                    resultDiv.textContent = `Computer chose ${computerMove}. You win!`;
+                    wins++;
+                } else {
+                    resultDiv.textContent = `Computer chose ${computerMove}. You lose!`;
+                    losses++;
+                }
+
+                updateScore();
+            }
+
+            function updateScore() {
+                document.getElementById("score").textContent =
+                    `Wins: ${wins} | Losses: ${losses} | Ties: ${ties}`;
+            }
+
+            function resetGame() {
+                wins = 0;
+                losses = 0;
+                ties = 0;
+                document.getElementById("result").textContent = '';
+                updateScore();
+            }
+
+        </script>
+    </body>
+
+    </html>
