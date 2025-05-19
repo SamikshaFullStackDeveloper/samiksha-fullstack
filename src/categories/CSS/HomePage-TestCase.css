@@ -1,0 +1,147 @@
+/* Reset and base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #4e54c82d, #8f94fb);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+  max-width: 600px;
+  width: 100%;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+#search {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+#search:focus {
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.7);
+  background-color: #fff;
+  color: #333;
+}
+
+main {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Test case card */
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover,
+.card:focus {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  outline: none;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  letter-spacing: 1.2px;
+}
+
+.card p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+/* Added image styling */
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+.status.pass {
+  background-color: #4caf50cc;
+  color: #e6f4ea;
+}
+
+.status.fail {
+  background-color: #f44336cc;
+  color: #fdecea;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+/* Responsive text scaling */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+  #search {
+    font-size: 0.95rem;
+  }
+  .card h2 {
+    font-size: 1.25rem;
+  }
+  .card p {
+    font-size: 0.9rem;
+  }
+}
+

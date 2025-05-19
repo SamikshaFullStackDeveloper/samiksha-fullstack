@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Test Cases Home</title>
+    <link
+      rel="stylesheet"
+      href="../../../src/categories/CSS/HomePage-TestCase.css"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Test Cases Dashboard</h1>
+<br/>
+      <input
+        type="text"
+        id="search"
+        placeholder="Search by Test Case ID or Scenario..."
+      />
+    </header>
+    <br/>
+
+    <main>
+      <div class="cards-container" id="cards-container">
+        <!-- Sample Test Case Card -->
+        <div class="card" tabindex="0">
+          <a
+            href="https://docs.google.com/spreadsheets/d/15N2XW4RhxRAkxVfS4xijm2qgXVZkr4uNN0eBxFsQhVg/edit?gid=0#gid=0"
+          >
+            <h2>TC-001</h2>
+            <p><strong>Test Cases on YouTube Page</strong></p>
+            <img
+              src="../../../src/assets/images/you-tube-img.png"
+              alt="YouTube Page"
+            />
+          </a>
+        </div>
+        <div class="card" tabindex="0">
+           <a
+            href="https://docs.google.com/spreadsheets/d/1xfQY0PVxqNC3dTSrKyx1dqErHYcqJ0s3VOtFGHAcMCQ/edit?gid=0#gid=0"
+          >
+          <h2>TC-002</h2>
+          <p><strong>Test Cases on LightBulb</strong></p>
+          <img src="../../../src/assets/images/Bulb-img.png" alt="Light Bulb" />
+           </a>
+        </div>
+
+        <div class="card" tabindex="0">
+           <a
+            href="https://docs.google.com/spreadsheets/d/1ZIjY6VsiRZ05xqimyMPVP64Z43aykpCeiptvd8RK_LU/edit?gid=0#gid=0"
+          >
+          <h2>TC-003</h2>
+          <p><strong>Test Cases on Login Page</strong></p>
+          <img
+            src="../../../src/assets/images/login-page-img.png"
+            alt="Login Page"
+          />
+            </a>
+        </div>
+    
+
+        <div class="card" tabindex="0">
+           <a
+            href="https://docs.google.com/spreadsheets/d/1rYjs-uhmM8HaPz3_hooujCDUbbi14ceckxQFeilIXnY/edit?gid=0#gid=0"
+          >
+          <h2>TC-004</h2>
+          <p><strong>Test Cases on Whiteboard </strong></p>
+          <img
+            src="../../../src/assets/images/whiteboard-img .png"
+            alt="Whiteboard"
+          />
+           </a>
+        </div>
+     
+    </div>
+  </main>
+
+    <script>
+      // Simple search functionality
+      const searchInput = document.getElementById("search");
+      const cards = document.querySelectorAll(".card");
+
+      searchInput.addEventListener("input", function () {
+        const query = this.value.toLowerCase();
+        cards.forEach((card) => {
+          const id = card.querySelector("h2").textContent.toLowerCase();
+          const scenario = card
+            .querySelector("p:nth-child(3)")
+            .textContent.toLowerCase();
+          if (id.includes(query) || scenario.includes(query)) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
