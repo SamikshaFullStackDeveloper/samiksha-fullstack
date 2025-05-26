@@ -1,0 +1,83 @@
+  /* Main Container Styling */
+        .main-container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+
+
+        }
+
+        /* First Division */
+        .first {
+            background-color: lightcoral;
+            height: 10%;
+            width: 90%;
+        }
+
+        /* Second Division */
+        .second {
+            background-color: lightpink;
+            height: 70%;
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+
+        }
+
+        /* Second First Division */
+        .second-first-division {
+            height: 80%;
+            width: 40%;
+            background-color: lightseagreen;
+        }
+
+        /* Second Second Division */
+        .second-second-division {
+            height: 80%;
+            width: 40%;
+            background-color: lightyellow;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+
+        }
+
+        /* Second Second Division One  */
+        .second-second-division-one {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /* Second second division one box */
+        .second-second-division-one-box {
+            width: 100%;
+            height: 20%;
+            background-color: aqua;
+        }
+
+        /* Second second division two */
+        .second-second-division-two {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /* Second second division two box */
+        .second-second-division-two-box {
+            width: 100%;
+            height: 20%;
+            background-color: aqua;
+        }
