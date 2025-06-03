@@ -1,4 +1,4 @@
-/* Global Styles */
+Global Styles
 * {
   margin: 0;
   padding: 0;
@@ -188,6 +188,11 @@ nav {
 
 .social-links {
   margin-top: 20px;
+  transition: 0.3s;
+  /* box-shadow: 0 4px 10px rgba(110, 87, 224, 0.5); */
+
+ 
+ 
  }
 
 .social-links a img {
@@ -207,16 +212,21 @@ nav {
   justify-content: center;
   align-items: center;
   min-width: 280px;
+  box-shadow: rgba(110, 87, 224);
 }
 
 .hero-image img {
   width: 300px;
   max-width: 100%;
   border-radius: 50%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(110, 87, 224, 0.5);
  
 }
-
+.hero-image img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
 /* Responsive */
 @media (max-width: 768px) {
   .hero-container {
@@ -253,6 +263,7 @@ nav {
   color: rgba(110, 87, 224);
   margin-bottom: 20px;
   position: relative;
+
 }
 
 .about h2::after {
@@ -311,6 +322,8 @@ nav {
   width: calc(25% - 20px); /* NEW: 4 per row */
   box-sizing: border-box;
   min-width: 250px; /* Optional but useful */
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(110, 87, 224, 0.5);
 }
 
 .skill-card:hover {
@@ -391,6 +404,8 @@ nav {
   height: 300px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(110, 87, 224, 0.5);
 
 }
 
@@ -475,6 +490,9 @@ nav {
   flex: 1 1 300px; 
   width: 300px;
   height: 300px; 
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(110, 87, 224, 0.5);
+
   
 }
 

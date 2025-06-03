@@ -1,0 +1,31 @@
+
+/* style.css */
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.hero {
+  background: url('https://source.unsplash.com/1600x600/?travel') no-repeat center center/cover;
+  color: white;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}

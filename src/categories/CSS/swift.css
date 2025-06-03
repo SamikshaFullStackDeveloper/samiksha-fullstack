@@ -10,7 +10,31 @@ body {
     text-align: center;
     padding: 40px 20px;
 }
+ /* Back Button */
+      .back-button {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        background: linear-gradient(145deg, #00e5ff78);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 8px 20px rgba(87, 219, 224, 0.489);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(87, 224, 224, 0.494);
+        z-index: 1000;
+      }
 
+      .back-button:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 12px 30px rgba(87, 222, 224, 0.5);
+        background: linear-gradient(145deg, #00e5ff78);
+      }
 header h1 {
     font-size: 48px;
     color: #00e5ff;

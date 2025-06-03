@@ -1,21 +1,91 @@
-h1 {
-    text-align: center;
-    color: darkblue;
-    font-size: 50px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Container */
+body {
+  background-color: #121212;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+/* Back Button */
+.back-button {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: linear-gradient(
+    145deg,
+    rgba(110, 87, 224, 0.9),
+    rgba(110, 87, 224, 0.7)
+  );
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(110, 87, 224, 0.3);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(110, 87, 224, 0.3);
+  z-index: 1000;
+}
+
+.back-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(110, 87, 224, 0.5);
+  background: linear-gradient(
+    145deg,
+    rgba(110, 87, 224, 1),
+    rgba(110, 87, 224, 0.8)
+  );
+}
+
+.back-button:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
 .container {
-    background-image: url(../../../src/assets/images/wall_paper.jpg);
-    height: 88vh;
-    width: 80vw;
-    border: solid;
-    background-position: cover;
-    background-repeat: no-repeat;
+
+  background-size: cover;
+  width: 90%;
+  max-width: 1000px;
+  padding: 60px 30px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+  font-size: 60px;
+  color: #00ffff;
+  margin-top: 20px;
 }
 
 h3 {
-    text-align: center;
-    color: black;
-    font-size: 30px;
+  font-size: 28px;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  .container {
+    padding: 40px 20px;
+  }
 }

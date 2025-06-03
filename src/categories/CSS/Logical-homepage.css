@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #1f1c2c, #928DAB);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* Back Button */
+.back-button {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: linear-gradient(
+    145deg,
+   #00e5ff78
+  );
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(87, 219, 224, 0.489);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(87, 224, 224, 0.494);
+  z-index: 1000;
+}
+
+.back-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(87, 222, 224, 0.5);
+  background: linear-gradient(
+    145deg,
+   #00e5ff78
+  );
+}
+
+
+
+header {
+    margin-bottom: 48px;
+}
+
+header h1 {
+    font-size: 50px;
+    color: #00e5ff78;
+}
+h2{
+    font-size: 34px;
+}
+
+.button-container {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn {
+    background-color: #00e5ff78;
+    color: black;
+    padding: 16px 32px;
+    font-size: 19px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #00e5ffd6;
+}

@@ -1,0 +1,109 @@
+table {
+    width: 90vw;
+    height: auto; /* changed from fixed height for better responsiveness */
+    background-color: lightblue;
+    margin-left: 5vw;
+    border-collapse: collapse; /* cleaner look */
+}
+
+/* Table rows */
+tr {
+    width: 100%;
+    background-color: lightcoral;
+    border-style: none;
+}
+
+/* Specific row heights */
+.row-one {
+    height: 100px;
+}
+
+.row-two,
+.row-three,
+.row-four {
+    height: auto; /* let content define height on small screens */
+    min-height: 20vh;
+}
+
+/* Columns */
+.row-one-colunm,
+.row-two-colunm,
+.row-three-colunm,
+.row-four-colunm {
+    width: 25%;
+    min-width: 200px;
+    box-sizing: border-box;
+    border: 2px solid;
+    background-color: white;
+    
+}
+
+/* Special styles for first row column */
+.row-one-colunm {
+    height: 100px;
+    background-image: url(../assets/images/ind-flag.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Row column image containers */
+.row-one-colunm-image,
+.row-one-colunm-image-two {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Text styling */
+.one {
+    font-size: 40px;
+    text-align: left;
+    padding: 20px;
+    color: black;
+    margin-bottom: 70px;
+}
+
+.two,
+.three {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+    padding: 10px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    table {
+        width: 100vw;
+        margin-left: 0;
+    }
+
+    .row-one-colunm,
+    .row-two-colunm,
+    .row-three-colunm,
+    .row-four-colunm {
+        width: 100%;
+    }
+
+    .one {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .two,
+    .three {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .row-one-colunm-image-two {
+        flex-direction: column;
+    }
+}

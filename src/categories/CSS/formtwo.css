@@ -1,9 +1,141 @@
+/* Reset & Base */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+/* Back Button */
+.back-button {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: linear-gradient(
+    145deg,
+    rgba(110, 87, 224, 0.9),
+    rgba(110, 87, 224, 0.7)
+  );
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(110, 87, 224, 0.3);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(110, 87, 224, 0.3);
+  z-index: 1000;
+}
+
+.back-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(110, 87, 224, 0.5);
+  background: linear-gradient(
+    145deg,
+    rgba(110, 87, 224, 1),
+    rgba(110, 87, 224, 0.8)
+  );
+}
+
+.back-button:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Main container styling */
 .main {
-    height: 88vh;
-    width: 80vw;
-    border: solid;
-    background-position: cover;
-    background-repeat: no-repeat;
-    background-image: url(../../../src/assets/images/wall_paper.jpg);
-    margin-top: 20px;
+  background-color: #2a2a2a;
+  padding: 40px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 900px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Heading */
+legend, h1 {
+  text-align: center;
+  font-size: 35px;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+/* Form Labels & Inputs */
+label, lable {
+  display: block;
+  margin-bottom: 6px;
+  color: #ccc;
+  font-size: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: #1e1e1e;
+  border: 1px solid #555;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+/* Buttons */
+button {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px 10px 0 0;
+  margin-left: 150px;
+}
+
+button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Align buttons */
+.button1, .button2 {
+  display: inline-block;
+}
+
+/* Responsive: Stack inputs on small devices */
+@media (max-width: 1024px) {
+  .main {
+    padding: 25px;
+  }
+
+  input, textarea {
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-left: 15px;
+  }
+
+  .button2 a {
+    display: block;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
 }
