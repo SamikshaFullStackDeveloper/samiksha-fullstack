@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Samiksha Tarase - Portfolio</title>
+    <link rel="icon" href="./assets/images/professional-portfolio.png" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      /* CSS Variables for theme switching */
+
+      :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --dark-bg: #0a0a0a;
+        --dark-secondary: #1a1a2e;
+        --dark-accent: #16213e;
+        --light-bg: #ffffff;
+        --light-secondary: #f8f9fa;
+        --text-light: #ffffff;
+        --text-dark: #2c3e50;
+        --glass-bg: rgba(255, 255, 255, 0.1);
+        --glass-border: rgba(255, 255, 255, 0.2);
+        --bg-color: #ffffff;
+        --text-color: #333333;
+        --card-bg: #ffffff;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --header-bg: rgba(0, 0, 0, 0.9);
+        --section-bg: #f8f9fa;
+        --border-color: #e0e0e0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+        transition: all 0.3s ease;
+      }
+
+     
+/* 
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+        line-height: 1.6;
+      } */
+
+          /* Light Mode */
+      body.light-mode {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: var(--text-dark);
+      }
+
+      /* Dark Mode */
+      body.dark-mode {
+        background: linear-gradient(
+          135deg,
+          #0c0c0c 0%,
+          #1a1a2e 50%,
+          #16213e 100%
+        );
+        color: var(--text-light);
+      }
+
+       /* Animated Background */
+      .animated-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        opacity: 0.1;
+      }
+
+      .floating-shapes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .shape {
+        position: absolute;
+        background: var(--primary-gradient);
+        border-radius: 50%;
+        animation: float 20s infinite linear;
+      }
+
+      .shape:nth-child(1) {
+        width: 80px;
+        height: 80px;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .shape:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        left: 20%;
+        animation-delay: -5s;
+      }
+      .shape:nth-child(3) {
+        width: 60px;
+        height: 60px;
+        left: 70%;
+        animation-delay: -10s;
+      }
+      .shape:nth-child(4) {
+        width: 100px;
+        height: 100px;
+        left: 80%;
+        animation-delay: -15s;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Header Styles */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem 5%;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--glass-border);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .header.scrolled {
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(30px);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-size: 2rem;
+        font-weight: 800;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-light);
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary-gradient);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Theme Toggle Switch */
+      .toggle-switch {
+        position: fixed;
+        top: 20px;
+        right: 50px;
+        width: 60px;
+        height: 30px;
+        background: #2e2e38;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        padding: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 1001;
+      }
+
+      .switch-thumb {
+        width: 22px;
+        height: 22px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .switch-thumb img {
+        width: 14px;
+        height: 14px;
+      }
+
+      .toggle-switch.active {
+        background: rgba(110, 87, 224, 0.8);
+      }
+
+      .toggle-switch.active .switch-thumb {
+        transform: translateX(30px);
+      }
+
+      .menu-toggle {
+        display: none;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 120px 20px 80px;
+        background: linear-gradient(
+          135deg,
+          var(--bg-color) 0%,
+          var(--section-bg) 100%
+        );
+      }
+
+      .hero-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        width: 100%;
+        gap: 50px;
+      }
+
+      .hero-text {
+        flex: 1;
+        animation: fadeInLeft 1s ease-out;
+      }
+
+      .hero-text h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        opacity: 0.8;
+      }
+
+      .hero-text h2 {
+        font-size: 3.5rem;
+        color: rgba(110, 87, 224, 1);
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 10px rgba(110, 87, 224, 0.3);
+        background: linear-gradient(
+          45deg,
+          rgba(110, 87, 224, 1),
+          rgba(110, 87, 224, 0.7)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-text p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        opacity: 0.9;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 15px 35px;
+        background: linear-gradient(
+          45deg,
+          rgba(110, 87, 224, 1),
+          rgba(110, 87, 224, 0.8)
+        );
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(110, 87, 224, 0.4);
+        border: none;
+        cursor: pointer;
+        margin-bottom: 30px;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(110, 87, 224, 0.6);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-links a {
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+
+      .social-links img {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 10px var(--shadow-color);
+      }
+
+      .social-links a:hover {
+        transform: translateY(-5px) scale(1.1);
+      }
+
+      .social-links img:hover {
+        box-shadow: 0 6px 20px rgba(110, 87, 224, 0.4);
+      }
+
+      .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        animation: fadeInRight 1s ease-out;
+      }
+
+      .hero-image img {
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 10px 30px rgba(110, 87, 224, 0.3);
+        transition: all 0.3s ease;
+        border: 5px solid rgba(110, 87, 224, 0.2);
+      }
+
+      .hero-image img:hover {
+        transform: scale(1.05) rotate(5deg);
+        box-shadow: 0 15px 40px rgba(110, 87, 224, 0.5);
+      }
+
+      /* About Section */
+      .about {
+        padding: 100px 20px;
+        text-align: center;
+        background: var(--section-bg);
+      }
+
+      .about h2 {
+        font-size: 2.5rem;
+        color: rgba(110, 87, 224, 1);
+        margin-bottom: 30px;
+        position: relative;
+      }
+
+      .about h2::after {
+        content: "";
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(
+          45deg,
+          rgba(110, 87, 224, 1),
+          rgba(110, 87, 224, 0.6)
+        );
+        display: block;
+        margin: 15px auto;
+        border-radius: 2px;
+      }
+
+      .about p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.8;
+        opacity: 0.9;
+      }
+
+      /* Skills Section */
+      .skills-section {
+        padding: 100px 20px;
+        background: var(--bg-color);
+      }
+
+      .skills-title {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 60px;
+        color: rgba(110, 87, 224, 1);
+      }
+
+      .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .skill-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 10px 30px var(--shadow-color);
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .skill-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(110, 87, 224, 0.1),
+          transparent
+        );
+        transform: rotate(45deg);
+        transition: all 0.6s ease;
+        opacity: 0;
+      }
+
+      .skill-card:hover::before {
+        opacity: 1;
+        animation: shimmer 1.5s ease-in-out;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px var(--shadow-color);
+      }
+
+      .skill-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .skill-card:hover .skill-icon {
+        transform: scale(1.2) rotate(10deg);
+      }
+
+      .skill-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: rgba(110, 87, 224, 1);
+      }
+
+      .skill-card p {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+        opacity: 0.8;
+      }
+
+      .progress-bar {
+        height: 8px;
+        background: var(--border-color);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 15px;
+      }
+
+      .progress {
+        height: 100%;
+        border-radius: 10px;
+        transition: width 1s ease-in-out;
+      }
+
+      /* Services Section */
+      .services {
+        padding: 100px 20px;
+        background: var(--section-bg);
+        text-align: center;
+      }
+
+      .services h2 {
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+        color: rgba(110, 87, 224, 1);
+      }
+
+      .services-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .service-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px var(--shadow-color);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 1px solid var(--border-color);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px var(--shadow-color);
+      }
+
+      .service-card img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover img {
+        transform: scale(1.1);
+      }
+
+      .service-card p {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: rgba(110, 87, 224, 1);
+        margin-bottom: 15px;
+      }
+
+      .description {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        font-size: 1rem;
+        color: var(--text-color);
+      }
+
+      .service-card:hover .description {
+        opacity: 1;
+        max-height: 100px;
+      }
+
+      /* Projects Section */
+      .projects {
+        padding: 100px 20px;
+        background: var(--bg-color);
+        text-align: center;
+      }
+
+      .projects h2 {
+        font-size: 2.5rem;
+        color: rgba(110, 87, 224, 1);
+        margin-bottom: 60px;
+        position: relative;
+      }
+
+      .projects h2::after {
+        content: "";
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(
+          45deg,
+          rgba(110, 87, 224, 1),
+          rgba(110, 87, 224, 0.6)
+        );
+        display: block;
+        margin: 15px auto;
+        border-radius: 2px;
+      }
+
+      .project-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .project-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 30px var(--shadow-color);
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 40px var(--shadow-color);
+      }
+
+      .project-card img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .project-card:hover img {
+        transform: scale(1.2) rotate(10deg);
+      }
+
+      .project-name {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: rgba(110, 87, 224, 1);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        margin-top: 15px;
+      }
+
+      .project-card:hover .project-name {
+        opacity: 1;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--section-bg);
+        padding: 60px 20px 30px;
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .footer-content h3 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: rgba(110, 87, 224, 1);
+      }
+
+      .footer-content p {
+        margin-bottom: 30px;
+        opacity: 0.8;
+      }
+
+      .footer-bottom {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-color);
+        opacity: 0.7;
+      }
+
+      /* Animations */
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+      }
+
+      /* Scroll to Top Button */
+      .scroll-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+          45deg,
+          rgba(110, 87, 224, 1),
+          rgba(110, 87, 224, 0.8)
+        );
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        box-shadow: 0 5px 15px rgba(110, 87, 224, 0.4);
+      }
+
+      .scroll-to-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(110, 87, 224, 0.6);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .header {
+          padding: 15px 20px;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: var(--header-bg);
+          flex-direction: column;
+          padding: 20px;
+          margin-right: 0;
+        }
+
+        .nav-links.show {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .toggle-switch {
+          right: 80px;
+        }
+
+        .hero-container {
+          flex-direction: column-reverse;
+          text-align: center;
+          gap: 30px;
+        }
+
+        .hero-text h2 {
+          font-size: 2.5rem;
+        }
+
+        .hero-image img {
+          width: 250px;
+          height: 250px;
+        }
+
+        .skills-container,
+        .services-container,
+        .project-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-text h2 {
+          font-size: 2rem;
+        }
+
+        .hero-text h3 {
+          font-size: 1.2rem;
+        }
+
+        .hero-text p {
+          font-size: 1rem;
+        }
+
+        .about h2,
+        .skills-title,
+        .services h2,
+        .projects h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="dark-mode">
+        <!-- Animated Background -->
+    <div class="animated-bg">
+      <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+    </div>
+         <header class="header" id="header">
+      <nav class="nav-container">
+        <a href="#home" class="logo">Portfolio</a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+          </div>
+        </nav>
+        </header>
+    
+
+      <!-- Theme Toggle Switch -->
+      <div class="toggle-switch" id="modeToggle">
+        <div class="switch-thumb">
+          <img
+            id="modeIcon"
+            src="https://img.icons8.com/ios-filled/50/moon-symbol.png"
+            alt="mode icon"
+          />
+        </div>
+      </div>
+    </div>
+
+    <section class="hero" id="home">
+      <div class="hero-container">
+        <div class="hero-text">
+          <h3>Hello, I'm</h3>
+          <h2>Samiksha Tarase</h2>
+          <p>
+            I'm a passionate Full Stack Developer who loves creating interactive
+            web applications that make a difference.
+          </p>
+
+          <a href="#" class="btn">Download CV</a>
+
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/samiksha-tarase-75a669356"
+              target="_blank"
+            >
+              <img
+                src="https://img.icons8.com/color/48/linkedin.png"
+                alt="LinkedIn"
+              />
+            </a>
+            <a
+              href="https://github.com/SamikshaFullStackDeveloper/samiksha-fullstack"
+              target="_blank"
+            >
+              <img
+                src="https://img.icons8.com/color/48/github--v1.png"
+                alt="GitHub"
+              />
+            </a>
+            <a href="mailto:samikshatarase16@gmail.com">
+              <img
+                src="https://img.icons8.com/color/48/gmail-new.png"
+                alt="Email"
+              />
+            </a>
+            <a href="tel:9529210676">
+              <img src="https://img.icons8.com/color/48/phone.png" alt="Call" />
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img
+            src="https://img.icons8.com/color/400/person-female.png"
+            alt="Profile Image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <p>
+          I am a passionate Full Stack Developer with a strong foundation in
+          both front-end and back-end technologies. My expertise lies in
+          crafting responsive and user-friendly applications that enhance the
+          user experience. I thrive in collaborative environments where I can
+          leverage my problem-solving skills and creativity to bring innovative
+          solutions to life.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+      <h2 class="skills-title">My Skills</h2>
+      <div class="skills-container">
+        <div class="skill-card">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+            alt="HTML5"
+            class="skill-icon"
+          />
+          <h3>HTML5</h3>
+          <p>
+            Semantic structure, media support, APIs for dynamic content, and
+            cleaner markup for SEO and accessibility.
+          </p>
+          <div class="progress-bar">
+            <div
+              class="progress"
+              style="
+                width: 90%;
+                background: linear-gradient(to right, #f12711, #f5af19);
+              "
+            ></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+            alt="CSS3"
+            class="skill-icon"
+          />
+          <h3>CSS3</h3>
+          <p>
+            Advanced styling with Flexbox, Grid, animations, transitions, and
+            responsive layouts for all devices.
+          </p>
+          <div class="progress-bar">
+            <div
+              class="progress"
+              style="
+                width: 90%;
+                background: linear-gradient(to right, #2980b9, #6dd5fa);
+              "
+            ></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+            alt="JavaScript"
+            class="skill-icon"
+          />
+          <h3>JavaScript</h3>
+          <p>
+            Core logic, dynamic UI manipulation, DOM control, async handling,
+            and enhancing interactivity.
+          </p>
+          <div class="progress-bar">
+            <div
+              class="progress"
+              style="
+                width: 85%;
+                background: linear-gradient(to right, #ffd200, #ffd200);
+              "
+            ></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-plain.svg"
+            alt="Bootstrap"
+            class="skill-icon"
+          />
+          <h3>Bootstrap</h3>
+          <p>
+            Pre-built responsive components, utility classes, and grid system to
+            speed up UI development.
+          </p>
+          <div class="progress-bar">
+            <div
+              class="progress"
+              style="
+                width: 80%;
+                background: linear-gradient(to right, #4b6cb7, #182848);
+              "
+            ></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+            alt="React"
+            class="skill-icon"
+          />
+          <h3>React JS</h3>
+          <p>
+            Build fast and scalable SPAs using reusable components, virtual DOM,
+            and hooks for state management.
+          </p>
+          <div class="progress-bar">
+            <div
+              class="progress"
+              style="
+                width: 80%;
+                background: linear-gradient(to right, #00d2ff, #00d2ff);
+              "
+            ></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+            alt="Java"
+            class="skill-icon"
+          />
+          <h3>Java</h3>
+          <p>
+            Object-oriented programming for building scalable, secure
+            applications from web to enterprise systems.
+          </p>
+          <div class="progress-bar">
+            <div
+              class="progress"
+              style="
+                width: 55%;
+                background: linear-gradient(to right, #e60000, #182848);
+              "
+            ></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+            alt="Python"
+            class="skill-icon"
+          />
+          <h3>Python</h3>
+          <p>
+            Readable, versatile, and powerful language used in web development,
+            data science, automation & more.
+          </p>
+          <div class="progress-bar">
+            <div
+              class="progress"
+              style="
+                width: 50%;
+                background: linear-gradient(to right, #4b6cb7, #ffd200);
+              "
+            ></div>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
+            alt="C"
+            class="skill-icon"
+          />
+          <h3>C</h3>
+          <p>
+            Procedural language used for system-level programming, offering
+            control over hardware and memory.
+          </p>
+          <div class="progress-bar">
+            <div
+              class="progress"
+              style="
+                width: 60%;
+                background: linear-gradient(to right, #504bb7, #18284870);
+              "
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+      <h2>My Services</h2>
+      <div class="services-container">
+        <div class="service-card">
+          <img
+            src="https://img.icons8.com/color/96/web-design.png"
+            alt="Web Development"
+          />
+          <p>Web Development</p>
+          <div class="description">
+            I build responsive, fast, and visually appealing websites using
+            modern web technologies.
+          </div>
+        </div>
+        <div class="service-card">
+          <img
+            src="https://img.icons8.com/color/96/ui-ux-design.png"
+            alt="UI/UX Design"
+          />
+          <p>UI/UX Design</p>
+          <div class="description">
+            I design user-friendly interfaces that are both functional and
+            visually attractive.
+          </div>
+        </div>
+        <div class="service-card">
+          <img
+            src="https://img.icons8.com/color/96/mobile-development.png"
+            alt="App Development"
+          />
+          <p>App Development</p>
+          <div class="description">
+            I create mobile and web apps that are smooth, efficient, and
+            user-focused.
+          </div>
+        </div>
+        <div class="service-card">
+          <img
+            src="https://img.icons8.com/color/96/test-tube.png"
+            alt="Manual Testing"
+          />
+          <p>Manual Testing</p>
+          <div class="description">
+            I test applications manually to find bugs and ensure a high-quality
+            user experience.
+          </div>
+        </div>
+        <div class="service-card">
+          <img
+            src="https://img.icons8.com/color/96/database.png"
+            alt="Database"
+          />
+          <p>Database</p>
+          <div class="description">
+            I manage structured data using optimized queries and secure database
+            design.
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
