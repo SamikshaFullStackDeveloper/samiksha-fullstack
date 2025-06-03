@@ -1,0 +1,80 @@
+ body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928DAB);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+         /* Back Button */
+      .back-button {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        background: linear-gradient(145deg, #00e5ff78);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: 0 8px 20px rgba(87, 219, 224, 0.489);
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(87, 224, 224, 0.494);
+        z-index: 1000;
+      }
+
+      .back-button:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 12px 30px rgba(87, 222, 224, 0.5);
+        background: linear-gradient(145deg, #00e5ff78);
+      }
+
+        header h1 {
+            font-size: 48px;
+            color: #00e5ff;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+
+        }
+
+        .box {
+            background-color: #3333335f;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            white-space: pre-line;
+            width: 420px;
+            min-height: 200px;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+            text-align: left;
+        }
+
+        .box-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #ffea00;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            color: #e0e0e0;
+        }
