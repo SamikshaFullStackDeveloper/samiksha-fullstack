@@ -1,380 +1,929 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Samiksha Tarase - Creative Portfolio</title>
-  <link rel="stylesheet" href="./src/categories/CSS/index.css" />
-  </head>
-  <body class="dark-mode">
-    <!-- Animated Background -->
-    <!-- <div class="animated-bg">
-      <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MG Photography</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Icon (Used Font Awesome CSS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: url("./assets/m-2-img.jpeg") center/cover no-repeat;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    /* Navbar Wrapper */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.534);
+      /* Dark transparent bg */
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+      /* Glassy effect (optional) */
+    }
+
+    /* Brand Name - Top Left */
+    .brand-top {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .brand-top span {
+      color: #00bfff;
+    }
+
+    /* Navbar Links - Top Right */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: white;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    /* Underline animation */
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background-color: #00bfff;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: #00bfff;
+    }
+
+    /* Hero Content */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      text-align: left;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-top: 15px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    /* Modern Gradient Button */
+    .btn-custom {
+      background: linear-gradient(45deg, #1e8fff51, #00bfff7f);
+      color: white;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-right: 10px;
+      border: none;
+      border-radius: 10px;
+
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background: linear-gradient(45deg, #1e8fff51, #00bfff7f);
+      transform: translateY(-3px);
+      box-shadow: 0px 6px 20px rgba(0, 191, 255, 0.6);
+    }
+
+    /* Outline Button */
+    .btn-outline-custom {
+      background: transparent;
+      color: white;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-right: 10px;
+      border: 1px solid white;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-custom:hover {
+      background: white;
+      color: #00bfff;
+      transform: translateY(-3px);
+    }
+
+@media (max-width: 768px) {
+  .hero {
+    background-position: right top; /* image ka right side focus */
+    padding: 40px 15px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .hero {
+    background-position: right center; /* sirf right part dikhne ke liye */
+    min-height: 70vh;
+  }
+}
+
+    /* Menu Button (hidden on desktop) */
+    .menu-btn {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Responsive Navbar */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.578);
+        flex-direction: column;
+        width: 200px;
+        text-align: left;
+        padding: 20px;
+        display: none;
+        /* hidden by default */
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+    }
+
+    /* Google Font */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
+
+    /* About Section */
+    .about-section {
+      background: linear-gradient(135deg, #0a0a2a, #1a1a4a);
+      padding: 80px 20px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Heading */
+    .about-heading h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 50px;
+      color: #fff;
+    }
+
+    .about-heading h2 span {
+      color: #4cc3ff;
+    }
+
+    /* Content Layout */
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    /* Image Styling */
+    .about-img img {
+      width: 320px;
+      height: 320px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .about-img img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    /* About Text Box */
+    .about-text {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 25px 30px;
+      border-radius: 15px;
+      max-width: 450px;
+      color: #eaeaea;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      text-align: left;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .about-text:hover {
+      transform: translateY(-5px);
+    }
+
+    .about-text strong {
+      color: #4cc3ff;
+    }
+
+    /* Button */
+    .btn-primary {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 25px;
+      background: #4cc3ff;
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: #00aaff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Highlights Section */
+    .about-highlights {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .highlight-box {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px 35px;
+      border-radius: 15px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .highlight-box:hover {
+      transform: translateY(-8px);
+    }
+
+    .highlight-box h3 {
+      font-size: 2rem;
+      color: #4cc3ff;
+      margin-bottom: 10px;
+    }
+
+    .highlight-box p {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #ddd;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about-heading h2 {
+        font-size: 2rem;
+      }
+
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+    }
+
+    /* ===== Gallery Section ===== */
+    .gallery-section {
+      padding: 40px 20px;
+      background: #fdfdfd;
+    }
+
+    /* Heading */
+    .gallery-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #00bfff;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
+
+    /* Masonry Grid */
+    .gallery-container {
+      column-count: 3;
+      /* number of columns */
+      column-gap: 15px;
+      /* space between columns */
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .gallery-container img {
+      width: 100%;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      display: block;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Hover effect */
+    .gallery-container img:hover {
+      transform: scale(1.03);
+      border: 3px solid #00bfff;
+      /* Blue border highlight */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .gallery-container {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-container {
+        column-count: 1;
+      }
+    }
+
+    /* Services Section */
+    .services-section {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 1000px;
+      margin: 50px auto;
+    }
+
+    .services-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #00bfff;
+    }
+
+    .service-buttons {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+      margin-left: 150px;
+    }
+
+    .service-buttons button {
+      padding: 10px 20px;
+      border: none;
+      background: #b3ecff;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .service-buttons button.active {
+      background: white;
+      border: 2px solid #00bfff;
+      color: #00bfff;
+    }
+
+    .service-content {
+      display: none;
+      margin-top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-content.active {
+      display: block;
+    }
+
+    .service-content img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .service-content h3 {
+      margin-top: 15px;
+      color: #333;
+    }
+
+    .service-content p {
+      color: #555;
+    }
+
+    .service-content .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #00bfff;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .service-content .btn:hover {
+      background: #008ecc;
+    }
+
+    @media (max-width: 768px) {
+      .service-buttons {
+        margin-left: 0;
+        justify-content: center;
+      }
+    }
+
+    /* Reviews Section */
+    .reviews-section {
+      background: linear-gradient(135deg, #0a0a2a, #1d1d4f);
+      padding: 80px 20px;
+      text-align: center;
+      font-family: "Poppins", sans-serif;
+      width: 100vw;
+    }
+
+    /* Heading */
+    .reviews-heading h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .reviews-heading h2 span {
+      color: #4cc3ff;
+    }
+
+    .reviews-heading p {
+      color: #ccc;
+      margin-bottom: 50px;
+      font-size: 1rem;
+    }
+
+    /* Review Cards */
+    .reviews-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .review-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 15px;
+      width: 300px;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .review-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #4cc3ff;
+    }
+
+    .review-card h3 {
+      color: #4cc3ff;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .review-card p {
+      font-size: 0.95rem;
+      color: #ddd;
+      line-height: 1.6;
+    }
+
+    /* Contact Section */
+
+    .contact-section {
+      padding: 80px 10%;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      width: 100vw;
+    }
+
+    .contact-heading h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .contact-heading h2 span {
+      color: #00bfff;
+    }
+
+    .contact-heading p {
+      color: #ccc;
+      margin-bottom: 50px;
+      font-size: 1.1rem;
+    }
+
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact-info {
+      text-align: left;
+    }
+
+    .contact-info h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    .social-links {
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 1.4rem;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #00bfff;
+    }
+
+    .contact-map iframe {
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <!-- Navbar -->
+    <div class="navbar">
+      <!-- Brand Name -->
+      <div class="brand-top"><span>MG</span> Photography</div>
+
+      <!-- Hamburger Menu Button (Mobile Only) -->
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
       </div>
-    </div> -->
 
-    <!-- Header -->
-    <header class="header" id="header">
-      <nav class="nav-container">
-        <a href="#home" class="logo">Portfolio</a>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="hero-container">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            Full Stack<br />
-            <span class="typing-animation">Developer</span>
-          </h1>
-
-          <p class="hero-subtitle">
-            <b>Hello, I'm Samiksha Tarase!</b><br />
-            I'm a passionate Full Stack Developer who loves creating interactive
-            web applications.
-          </p>
-          <div class="cta-buttons">
-            <a href="#projects" class="btn btn-primary"> View My Project </a>
-            <a href="src/categories/HTML/Resume.html" class="btn btn-secondary">
-              Resume
-            </a>
-          </div>
-          <div class="social-links">
-            <a
-              href="https://www.linkedin.com/in/samiksha-tarase-75a669356"
-              target="_blank"
-              class="social-link"
-              ><img
-                src="./src/assets/images/icons8-linkedin-96.png"
-                alt="LinkedIn"
-                style="height: 35px; width: 35px"
-            /></a>
-            <a
-              href="https://github.com/SamikshaFullStackDeveloper/samiksha-fullstack"
-              target="_blank"
-              class="social-link"
-              ><img
-                src="./src/assets/images/icons8-github-96.png"
-                alt="GitHub"
-                style="height: 35px; width: 35px"
-            /></a>
-            <a href="mailto:samikshatarase16@gmail.com" class="social-link"
-              ><img
-                src="./src/assets/images/icons8-mail-100.png"
-                alt="Email"
-                style="height: 35px; width: 35px"
-              />
-            </a>
-            <a href="tel:9529210676" class="social-link">
-              <img
-                src="./src/assets/images/icons8-call-30.png"
-                alt="Call"
-                style="height: 35px; width: 35px"
-              />
-            </a>
-          </div>
-        </div>
-        <!-- <div class="hero-image">
-                <div class="profile-container">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><defs><linearGradient id='grad1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%23667eea;stop-opacity:1' /><stop offset='100%' style='stop-color:%23764ba2;stop-opacity:1' /></linearGradient></defs><circle cx='200' cy='200' r='180' fill='url(%23grad1)'/><text x='200' y='220' text-anchor='middle' fill='white' font-size='120' font-family='Arial'>ST</text></svg>" alt="Samiksha Tarase" class="profile-image">
-                </div>
-            </div> -->
+      <!-- Top Right Navbar -->
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
       </div>
-    </section>
+    </div>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
+    <!-- Hero Text -->
+    <div class="container hero-content" id="home">
+      <h1>
+        Capturing Moments,<br />
+        Creating Memories
+      </h1>
+      <p>
+        Bringing your special moments to life with creativity,<br />
+        passion, and a touch of magic.
+      </p>
+      <div class="mt-4">
+        <a href="#gallery" class="btn btn-custom">Explore Gallary</a>
+        <a href="#about" class="btn btn-outline-custom">About Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About Section ===== -->
+  <section class="about-section" id="about">
+    <div class="about-heading">
+      <h2><span>About</span> Me</h2>
+    </div>
+
+    <div class="about-content">
+      <!-- Profile Image -->
+      <div class="about-img">
+        <img src="./assets/Mayur-photo.png" alt="Photographer" />
+      </div>
+
+      <!-- About Text -->
+      <div class="about-text">
         <p>
-          I am a passionate Full Stack Developer with a strong foundation in
-          both front-end and back-end technologies. My expertise lies in
-          crafting responsive and user-friendly applications that enhance the
-          user experience. I thrive in collaborative environments where I can
-          leverage my problem-solving skills and creativity to bring innovative
-          solutions to life. Every line of code I write is driven by the desire
-          to create something meaningful and impactful.
+          I'm <strong>Mayur Gawande</strong>, a passionate photographer
+          turning moments into timeless memories. Specializing in weddings,
+          portraits, and events. I focus on capturing real emotions with
+          creativity and precision. Every click tells a unique story -
+          <strong>your story</strong>.
+        </p>
+        <a href="https://www.youtube.com/@mayurgawandephotography2955" class="btn-primary">See My Work</a>
+      </div>
+    </div>
+
+    <!-- Highlights / Achievements -->
+    <div class="about-highlights">
+      <div class="highlight-box">
+        <h3>11+</h3>
+        <p>Years Experience</p>
+      </div>
+      <div class="highlight-box">
+        <h3>200+</h3>
+        <p>Event Covered</p>
+      </div>
+      <div class="highlight-box">
+        <h3>750+</h3>
+        <p>Weddings Captured</p>
+      </div>
+    </div>
+  </section>
+  <!-- ===== Gallery Section ===== -->
+  <section class="gallery-section" id="gallery">
+    <h2 class="gallary-heading">Gallery</h2>
+    <div class="gallery-container">
+      <img src="https://imgeng.jagran.com/webstories/129937/bhavika-sharma-looks-1742553018.webp"
+        alt="Bhavika Sharma" />
+      <img src="https://images.herzindagi.info/image/2021/Aug/wedding-photography-main.jpg" alt="Pre-wedding" />
+      <img
+        src="https://i.ytimg.com/vi/P3rdy3yx-9g/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBHwyEUiajkYsQuWb3Ev8e5FAlu1Q"
+        alt="" />
+      <img src="https://weddingdiariesbyomp.com/wp-content/uploads/Prewedding-Shoot-in-Goa-1-1.webp" alt="" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_hi3G2MWMObJ9IFkaWvaUQXS3ldUMKgUfYg&s" alt="" />
+      <img src="https://i.pinimg.com/736x/7a/07/9a/7a079afb78a253135e8173f54b32f699.jpg" alt="" />
+      <img src="https://img.freepik.com/premium-photo/one-year-old-cute-boy-gray-background_158076-402.jpg" alt="" />
+      <img src="https://www.mohifashion.com/cdn/shop/articles/wedding.jpg?v=1721994950" alt="" />
+      <img
+        src="https://images.shaadisaga.com/shaadisaga_production/photos/pictures/001/971/250/new_medium/1_cover_photo_Rajesh_Digital.jpg?1601037242"
+        alt="">
+      <img src="../../Website/assets/img.png" alt="" />
+    </div>
+  </section>
+  <!-- Services Section -->
+
+  <div class="services-section" id="services">
+    <h2>Services</h2>
+    <p>
+      Capturing love, moments, and personalities with timeless elegance — from
+      weddings to events to portraits.
+    </p>
+
+    <!-- Buttons -->
+    <div class="service-buttons">
+      <button class="tab-btn active" data-target="wedding">
+        Wedding Photography
+      </button>
+      <button class="tab-btn" data-target="event">Event Coverage</button>
+      <button class="tab-btn" data-target="portrait">Portrait Shoots</button>
+    </div>
+
+    <!-- Wedding Section -->
+    <div id="wedding" class="service-content active">
+      <img
+        src="https://girlandworld.com/wp-content/uploads/2018/03/indian-bridal-pakistani-bride-hair-and-makeup-artist-vancouver-mindy-bansal-beauty-influencer-destination-weddings-girlfriendz-studio1.jpg?w=1920&h=1080&crop=1"
+        alt="Wedding" />
+      <h3>Wedding Photography</h3>
+      <p>Immortalize your special day with heartfelt, breathtaking images.</p>
+      <a href="#" class="btn">Show Videos</a>
+    </div>
+
+    <!-- Event Section -->
+    <div id="event" class="service-content">
+      <img src="https://jerseyroad.agency/uploads/images/PR-for-events.jpg" alt="Event" />
+      <h3>Event Coverage</h3>
+      <p>
+        From birthdays to corporate events, we capture every highlight and
+        candid moment.
+      </p>
+      <a href="#" class="btn">Explore Events</a>
+    </div>
+
+    <!-- Portrait Section -->
+    <div id="portrait" class="service-content">
+      <img src="https://anyanglephotography.com/wp-content/uploads/2023/12/girl-white-flowers-scaled.jpg"
+        alt="Portrait" />
+      <h3>Portrait Shoots</h3>
+      <p>
+        Personalized portrait sessions that reflect your style and
+        personality.
+      </p>
+      <a href="#" class="btn">View Portraits</a>
+    </div>
+  </div>
+
+  <!-- ===== Reviews Section ===== -->
+  <section class="reviews-section" id="reviews">
+    <div class="reviews-heading">
+      <h2><span>Client</span> Reviews</h2>
+      <p>What my clients say about my photography</p>
+    </div>
+
+    <div class="reviews-container">
+      <!-- Review Card 1 -->
+      <div class="review-card">
+        <img src="https://images.filmibeat.com/img/popcorn/profile_photos/bhavika-sharma-20250507210017-66620.jpg"
+          alt="Client" class="review-img" />
+        <h3>Bhavika Sharma</h3>
+        <p>
+          "Mayur captured our wedding beautifully. Every picture felt like a
+          story. Truly talented!"
         </p>
       </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-      <h2 class="section-title">My Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-            />
-          </div>
-          <h3 class="skill-name">HTML5</h3>
-          <p class="skill-description">
-            Semantic structure, media support, APIs for dynamic content
-          </p>
-          <div class="skill-level">
-            <div class="skill-progress" style="width: 90%"></div>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-            />
-          </div>
-          <h3 class="skill-name">CSS3</h3>
-          <p class="skill-description">
-            Advanced styling with Flexbox, Grid, animations
-          </p>
-          <div class="skill-level">
-            <div class="skill-progress" style="width: 90%"></div>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-            />
-          </div>
-          <h3 class="skill-name">JavaScript</h3>
-          <p class="skill-description">
-            Core logic, dynamic UI manipulation, async handling
-          </p>
-          <div class="skill-level">
-            <div class="skill-progress" style="width: 85%"></div>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <div>🅱</div>
-          </div>
-          <h3 class="skill-name">Bootstrap</h3>
-          <p class="skill-description">
-            Responsive components and utility classes
-          </p>
-          <div class="skill-level">
-            <div class="skill-progress" style="width: 80%"></div>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">⚛️</div>
-          <h3 class="skill-name">React JS</h3>
-          <p class="skill-description">
-            Building scalable SPAs with hooks and components
-          </p>
-          <div class="skill-level">
-            <div class="skill-progress" style="width: 80%"></div>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-            />
-          </div>
-          <h3 class="skill-name">Java</h3>
-          <p class="skill-description">
-            Object-oriented programming, Spring framework
-          </p>
-          <div class="skill-level">
-            <div class="skill-progress" style="width: 75%"></div>
-          </div>
+      <!-- Review Card 2 -->
+      <div class="review-card">
+        <img src="https://dealbazaarsonline.com/cdn/shop/files/photo_2023-06-22_15-32-48.jpg?v=1707207272&width=1445"
+          alt="Client" class="review-img" />
+        <h3>Madhuri Dixit</h3>
+        <p>
+          "Amazing experience! The portraits came out so natural and elegant.
+          Highly recommended."
+        </p>
+      </div>
+
+      <!-- Review Card 3 -->
+      <div class="review-card">
+        <img
+          src="https://in.bmscdn.com/iedb/artist/images/website/poster/large/sidharth-malhotra-41930-12-09-2017-03-54-10.jpg"
+          alt="Client" class="review-img" />
+        <h3>Siddharth Malhotra</h3>
+        <p>
+          "Professional, creative, and friendly. Mayur made us feel
+          comfortable throughout the shoot."
+        </p>
+      </div>
+
+
+  </section>
+  <!-- Contact Section -->
+
+  <section class="contact-section" id="contact">
+    <div class="contact-heading">
+      <h2><span>Contact</span> Me</h2>
+      <p>
+        Let's create memories together. Reach out for bookings or inquiries.
+      </p>
+    </div>
+
+    <div class="contact-container">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h3>Get In Touch</h3>
+        <p><strong>Photographer:</strong> Mayur Gawande</p>
+        <p><strong>Phone:</strong> +91 9665867615</p>
+        <p><strong>Email:</strong> mayurgawande000@gmail.com</p>
+        <p>
+          <strong> Address:</strong> Near Symboisis International
+          University<br />
+          Nagpur, Maharashtra, India
+        </p>
+
+        <div class="social-links">
+          <a href="https://www.instagram.com/mayur_gawande_photography/"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="tel:9665867615"><i class="fa-solid fa-phone"></i></a>
+          <a href="https://www.youtube.com/@mayurgawandephotography2955"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-      <h2 class="section-title">My Services</h2>
-      <div class="services-container">
-        <div class="service-card">
-          <img
-            src="https://img.icons8.com/color/96/web-design.png"
-            alt="Web Development"
-          />
-          <p>Web Development</p>
-          <div class="description">
-            I build responsive, fast, and visually appealing websites using
-            modern web technologies.
-          </div>
-        </div>
-        <div class="service-card">
-          <img
-            src="src/assets/images/ux-ui-logo Background Removed.png"
-            style="height: 120px; width: 200px"
-            alt="UI/UX Design"
-          />
-          <p>UI/UX Design</p>
-          <div class="description">
-            I design user-friendly interfaces that are both functional and
-            visually attractive.
-          </div>
-        </div>
-        <div class="service-card">
-          <img
-            src="src/assets/images/app-dev-logo Background Removed.png"
-            style="height: 100px; width: 100px"
-            alt="App Development"
-          />
-          <p>App Development</p>
-          <div class="description">
-            I create mobile and web apps that are smooth, efficient, and
-            user-focused.
-          </div>
-        </div>
-        <div class="service-card">
-          <img
-            src="src/assets/images/animation-icon.png"
-            style="height: 100px; width: 100px"
-            alt="Manual Testing"
-          />
-          <p>Manual Testing</p>
-          <div class="description">
-            I test applications manually to find bugs and ensure a high-quality
-            user experience.
-          </div>
-        </div>
-        <div class="service-card">
-          <img
-            src="https://img.icons8.com/color/96/database.png"
-            alt="Database"
-          />
-          <p>Database</p>
-          <div class="description">
-            I manage structured data using optimized queries and secure database
-            design.
-          </div>
-        </div>
+      <!-- Map -->
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.4815086111896!2d79.088154!3d21.145800!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c082b92d18b1%3A0xb1d5c99d3ddcbbe!2sNagpur%20City%20Center!5e0!3m2!1sen!2sin!4v1693404000000"
+          width="100%" height="350" style="border: 0" allowfullscreen="" loading="lazy">
+        </iframe>
       </div>
-    </section>
-    <!-- Project Section -->
-    <section class="projects" id="projects">
-      <h2 class="section-title">My Projects</h2>
-      <div class="project-container">
-        <a href="./src/categories/HTML/html-page.html">
-          <div class="project-card">
-            <img src="./src/assets/images/icons8-html-5-240.png" />
-            <div class="project-name">HTML</div>
-          </div>
-        </a>
+    </div>
+  </section>
 
-        <a href="./src/categories/HTML/css-page.html">
-          <div class="project-card">
-            <img src="./src/assets/images/icons8-css-logo-240.png" />
-            <div class="project-name">CSS</div>
-          </div>
-        </a>
+  <!-- Script for services section -->
+  <script>
+    const buttons = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".service-content");
 
-        <a href="./src/categories/HTML/js-page.html">
-          <div class="project-card">
-            <img src="./src/assets/images/icons8-javascript-240.png" />
-            <div class="project-name">Javascript</div>
-          </div>
-        </a>
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Remove active from all
+        buttons.forEach((b) => b.classList.remove("active"));
+        contents.forEach((c) => c.classList.remove("active"));
 
-        <a href="./src/categories/HTML/Logical-Page/home-page.html">
-          <div class="project-card">
-            <img
-              src="./src/assets/images/prog-lang-img.png"
-              style="height: 150px; width: 150px"
-            />
-            <div class="project-name" style="font-size: 25px">
-              Programming Languages
-            </div>
-          </div>
-        </a>
+        // Add active to clicked
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.target).classList.add("active");
+      });
+    });
 
-        <a href="./src/categories/HTML/pages.html">
-          <div class="project-card">
-            <img src="./src/assets/images/icons8-bootstrap-logo-240.png" />
-            <div class="project-name">Bootstrap</div>
-          </div>
-        </a>
+  // Script for Menu Button //
 
-        <a href="https://jolly-kulfi-554a8f.netlify.app/">
-          <div class="project-card">
-            <img
-              src="./src/assets/images/react-logo.png"
-              style="height: 220px; width: 220px"
-            />
-            <div class="project-name">ReactJs</div>
-          </div>
-        </a>
+  const menuBtn = document.querySelector(".menu-btn");
+  const navLinks = document.querySelector(".nav-links");
 
-        <a href="./src/categories/HTML/HomePage-TestCases.html">
-          <div class="project-card">
-            <img
-              src="./src/assets/images/test-case-logo.webp"
-              style="height: 200px; width: 200px"
-            />
-            <div class="project-name">Test Cases</div>
-          </div>
-        </a>
-      </div>
-    </section>
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
 
-    <!-- Contact Section -->
-    <section class="footer-section">
-      <footer class="footer" id="contact">
-        <div class="footer-container">
-          <div class="footer-content">
-            <h3>Samiksha Tarase</h3>
-            <p>Full Stack Developer | Creating Innovative Web Experiences</p>
-            <div class="social-links" style="margin-right: 10px">
-              <a
-                href="https://www.linkedin.com/in/samiksha-tarase-75a669356"
-                target="_blank"
-                class="social-link"
-                ><img
-                  src="./src/assets/images/icons8-linkedin-96.png"
-                  alt="LinkedIn"
-                  style="height: 35px; width: 35px"
-              /></a>
-              <a
-                href="https://github.com/SamikshaFullStackDeveloper/samiksha-fullstack"
-                target="_blank"
-                class="social-link"
-                ><img
-                  src="./src/assets/images/icons8-github-96.png"
-                  alt="GitHub"
-                  style="height: 35px; width: 35px"
-              /></a>
-              <a href="mailto:samikshatarase16@gmail.com" class="social-link"
-                ><img
-                  src="./src/assets/images/icons8-mail-100.png"
-                  alt="Email"
-                  style="height: 35px; width: 35px"
-                />
-              </a>
-              <a href="tel:9529210676" class="social-link">
-                <img
-                  src="./src/assets/images/icons8-call-30.png"
-                  alt="Call"
-                  style="height: 35px; width: 35px"
-                />
-              </a>
-            </div>
-          </div>
-          <br />
+    // Toggle hamburger ↔ close icon
+    menuBtn.innerHTML = navLinks.classList.contains("show")
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
+  });
+  </script>
+</body>
 
-          <p class="footer-bottom">
-            © 2025 Samiksha Tarase. All rights reserved.
-          </p>
-        </div>
-      </footer>
-    </section>
-  </body>
 </html>
