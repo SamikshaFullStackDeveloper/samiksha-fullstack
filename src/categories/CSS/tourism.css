@@ -1,5 +1,5 @@
 table {
-    width: 90vw;
+    width: 100vw;
     height: auto; /* changed from fixed height for better responsiveness */
     background-color: lightblue;
     margin-left: 5vw;

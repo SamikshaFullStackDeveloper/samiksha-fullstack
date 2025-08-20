@@ -2,79 +2,70 @@
 <html lang="en">
 
 <head>
-    <title>Second Page</title>
-    <link rel="stylesheet" href="../../../../src/categories/CSS/formtwo.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Second Page - Personal Information</title>
+  <link rel="stylesheet" href="../../../../src/categories/CSS/formtwo.css" />
 </head>
 
 <body>
-    <div class="main">
-        <form action="formone.html">
-            <br />
-            <u><i>
-                    <h1>
-                        <legend>Personal Information</legend>
-                    </h1>
-                </i></u>
-            <br />
-            <!--first name input -->
-            <label for="Text">First Name : </label>
-            <input type="text" id="First name" />
-            <br />
-            <br />
-            <!-- Middle name input -->
-            <label for="Text">Middle Name : </label>
-            <input type="text" id="Middle Name" />
-            <br />
-            <br />
-            <!-- last name input -->
-            <label for="text">Last Name : </label>
-            <input type="text" id="Last name" />
-            <br />
-            <br />
-            <!-- Address -->
-            <lable for="text">Address : </lable>
-            <input type="text" id="Address"/>
-            <br/>
-            <br/>
-            <!-- DOB input  -->
-            <lable for="date">Date Of Birth : </lable>
-            <input type="date" id="date ">
-            <br />
-            <br />
-            <!-- Ph number input -->
-            <label for="number">Contact Number 📞 : </label>
-            <input type="number" id="Contact number" />
-            <br>
-            <br>
-            <!-- Ph number input -->
-            <label for="number">Family Contact Number 📞 : </label>
-            <input type="number" id="Contact number" />
-            <br>
-            <br>
-            <!-- Aadhar number input -->
-            <label for="number">Aadhar Number : </label>
-            <input type="number" id="Aadhar number" />
-            <br>
-            <br />
-            <!-- Email id input -->
-            <label for="Email id">Email id : </label>
-            <input type="Email id" id="Email id" />
-            <br/>
-            <br/>
+     <button class="back-button" onclick="window.location.href='../../../indexx.html'">← Back</button>
+  <div class="main">
+    <form action="formthree.html" method="get">
+      <h1>Personal Information</h1>
 
-            <!-- Button Input -->
-            <br />
-            <button class="button1" type="preview" class="signupbtn">preview</button>
+      <div>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName"/>
+      </div>
 
+      <div>
+        <label for="middleName">Middle Name:</label>
+        <input type="text" id="middleName" name="middleName" />
+      </div>
 
-            <button class="button2" type="click to proceed" class="signupbtn"><a href="formthree.html">click to
-                    proceed</a></button>
-            </button>
-            <br />
+      <div>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" />
+      </div>
 
-        </form>
+      <div>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" />
+      </div>
 
-    </div>
+      <div>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" />
+      </div>
+
+      <div>
+        <label for="contactNumber">Contact Number 📞:</label>
+        <input type="tel" id="contactNumber" name="contactNumber" pattern="[0-9]{10}" placeholder="10-digit number" />
+      </div>
+
+      <div>
+        <label for="familyContactNumber">Family Contact Number 📞:</label>
+        <input type="tel" id="familyContactNumber" name="familyContactNumber" pattern="[0-9]{10}" placeholder="10-digit number" />
+      </div>
+
+      <div>
+        <label for="aadharNumber">Aadhar Number:</label>
+        <input type="text" id="aadharNumber" name="aadharNumber" pattern="\d{12}" placeholder="12-digit Aadhar number" />
+      </div>
+
+      <div>
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" placeholder="example@mail.com"  />
+      </div>
+
+      <div class="buttons">
+        <button type="button" onclick="location.href='formone.html'">Back</button>
+        <button type="submit">Proceed</button>
+
+      </div>
+    </form>
+  </div>
 </body>
 
 </html>

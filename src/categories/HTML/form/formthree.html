@@ -2,86 +2,96 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Third Page</title>
     <link rel="stylesheet" href="../../../../src/categories/CSS/formthree.css">
+</head>
 
 <body>
-    <form action="formtwo.html">
-        <div class="main">
-            <!-- timing -->
-            <h3> Batch Time</h3>
-            <label for="time"></Label>
-            <input type="time" id="time">To <input type="time" id="time">
-            <!-- communication -->
-            <h3> Communication</h3>
-            <label for="range">[0/10]:</Label>
-            <input type="range" name="range" />
-            <!-- Gender input-->
-            <h3>Gender</h3>
-            <label for="Gender">Male 🧑‍💼 </label>
-            <input type="radio" name="Gender">
-            <label for="Gender">Female 👩‍💼 </label>
-            <input type="radio" name="Gender">
-            <!-- Technical Knowledge -->
-            <h3>Previous Technical Knowledge</h3>
-            <!-- textarea -->
-            <textarea placeholder="Enter Your Previous Knowledge"></textarea>
-            <h3> what laptop do you own ?</h3>
-            <!-- checkbox input -->
-            <label for="checkbox">mac</label>
-            <input type="checkbox" id="checkbox" />
-            <!-- checkbox input -->
-            <label for="checkbox">android</label>
-            <input type="checkbox" id="checkbox" />
-            <!-- checkbox input -->
-            <label for="checkbox">linux</label>
-            <input type="checkbox" id="checkbox" />
-            <!-- checkbox input -->
-            <label for="checkbox">window</label>
-            <input type="checkbox" id="checkbox" />
-            <h2>Select Your Education</h2>
-            <!-- Radio input -->
-            <input type="radio" id="ed" name="Education" />
-            <label for="radio">schooling 🏫 </label>
-            <br>
-            <!-- Radio input -->
-            <input type="radio" id="ed" name="Education" />
-            <label for="radio">Jr. college 🏢 </label>
-            <br>
-            <!-- Radio input -->
-            <input type="radio" id="ed" name="Education" />
-            <label for="radio">Graduation 📚 </label>
-            <br>
-            <!-- Radio input -->
-            <input type="radio" id="ed" name="Education" />
-            <label for="radio">Post Graduation 🎓 </label>
-            <br />
-            <!-- Radio input -->
-            <input type="radio" id="ed" name="Education" />
-            <label for="radio">PHD 👩‍🎓 </label>
-            <br/>
-            <br/>
-            <!-- select -->
-            <select>
-                <optgroup lable="Jr.Batch">
-                    <option value="Batch 1">visionary batch</option>
-                    <option value="Batch 2">scholar batch</option>
-                </optgroup>
-                <optgroup lable="Sr.Batch">
-                    <option value="Batch 1">Adventesious Batch</option>
-                    <option value="Batch 2">Proficient Batch</option>
-                </optgroup>
-            </select>
-            <br />
-            <br/>
-            <!-- Submit Button -->
-            <button class="button1" type="preview" class="signupbtn">preview</button>
-            <button class="button2" type="Submit" class="signupbtn"><a href="formfour.html">Submit</a></button>
-            </button>
-            <br />
-    </form>
+       <button class="back-button" onclick="window.location.href='../../../indexx.html'">← Back</button>
+    <div class="main">
+        <form action="formtwo.html">
+            <h1>Your Details:</h1>
+
+            <!-- Batch Time -->
+            <div class="row">
+                <div class="input-box">
+                    <label for="batchStart">Batch Start Time</label>
+                    <input type="time" id="batchStart" />
+                </div>
+                <div class="input-box">
+                    <label for="batchEnd">Batch End Time</label>
+                    <input type="time" id="batchEnd" />
+                </div>
+            </div>
+
+            <!-- Communication -->
+            <div class="input-box">
+                <label for="comm">Communication (0-10)</label>
+                <input type="range" id="comm" min="0" max="10" />
+            </div>
+
+            <!-- Gender -->
+            <div class="input-box">
+                <label>Gender</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="gender" /> Male 🧑‍💼</label>
+                    <label><input type="radio" name="gender" /> Female 👩‍💼</label>
+                </div>
+            </div>
+
+            <!-- Previous Knowledge -->
+            <div class="input-box">
+                <label for="knowledge">Previous Technical Knowledge</label>
+                <textarea id="knowledge" placeholder="Enter Your Previous Knowledge"></textarea>
+            </div>
+
+            <!-- Laptop -->
+            <div class="input-box">
+                <label>What laptop do you own?</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" /> Mac</label>
+                    <label><input type="checkbox" /> Android</label>
+                    <label><input type="checkbox" /> Linux</label>
+                    <label><input type="checkbox" /> Windows</label>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="input-box">
+                <label>Education</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="education" /> Schooling 🏫</label>
+                    <label><input type="radio" name="education" /> Jr. College 🏢</label>
+                    <label><input type="radio" name="education" /> Graduation 📚</label>
+                    <label><input type="radio" name="education" /> Post Graduation 🎓</label>
+                    <label><input type="radio" name="education" /> PHD 👩‍🎓</label>
+                </div>
+            </div>
+
+            <!-- Batch Selection -->
+            <div class="input-box">
+                <label>Select Batch</label>
+                <select>
+                    <optgroup label="Jr. Batch">
+                        <option>Visionary Batch</option>
+                        <option>Scholar Batch</option>
+                    </optgroup>
+                    <optgroup label="Sr. Batch">
+                        <option>Adventurous Batch</option>
+                        <option>Proficient Batch</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group">
+                <button type="button" onclick="location.href='formtwo.html'">Back</button>
+                <button type="submit"><a href="formfour.html">Submit</a></button>
+            </div>
+        </form>
     </div>
-    </form>
 </body>
 
 </html>
