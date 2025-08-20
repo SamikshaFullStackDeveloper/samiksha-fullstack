@@ -254,7 +254,7 @@ body.dark-mode {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientShift 3s ease-in-out infinite;
+  /* animation: gradientShift 3s ease-in-out infinite; */
 }
 
 @keyframes gradientShift {
@@ -265,7 +265,7 @@ body.dark-mode {
   50% {
     background-position: 100% 50%;
   }
-}
+} 
 
 /* Hero Subtitle and Buttons */
 .hero-subtitle {
