@@ -4,23 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Samiksha Tarase - Creative Portfolio</title>
-  <link rel="stylesheet" href="./src/categories/CSS/index.css" />
+    <!-- External CSS link -->
+    <link rel="stylesheet" href="./src/categories/CSS/index.css" />
+    <!-- Icon (Used Font Awesome CSS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body class="dark-mode">
-    <!-- Animated Background -->
-    <!-- <div class="animated-bg">
-      <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-      </div>
-    </div> -->
-
     <!-- Header -->
     <header class="header" id="header">
       <nav class="nav-container">
         <a href="#home" class="logo">Portfolio</a>
+         <!-- Hamburger Menu Button (Mobile Only) -->
+    <div class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
 
         <ul class="nav-links" id="navLinks">
           <li><a href="#home">Home</a></li>
@@ -39,7 +36,7 @@
         <div class="hero-content">
           <h1 class="hero-title">
             Full Stack<br />
-            <span class="typing-animation">Developer</span>
+            <span>Developer</span>
           </h1>
 
           <p class="hero-subtitle">
@@ -59,7 +56,7 @@
               target="_blank"
               class="social-link"
               ><img
-                src="./src/assets/images/icons8-linkedin-96.png"
+                src="./src/assets/images/linkdin-removebg-preview.png"
                 alt="LinkedIn"
                 style="height: 35px; width: 35px"
             /></a>
@@ -88,11 +85,6 @@
             </a>
           </div>
         </div>
-        <!-- <div class="hero-image">
-                <div class="profile-container">
-                    <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><defs><linearGradient id='grad1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%23667eea;stop-opacity:1' /><stop offset='100%' style='stop-color:%23764ba2;stop-opacity:1' /></linearGradient></defs><circle cx='200' cy='200' r='180' fill='url(%23grad1)'/><text x='200' y='220' text-anchor='middle' fill='white' font-size='120' font-family='Arial'>ST</text></svg>" alt="Samiksha Tarase" class="profile-image">
-                </div>
-            </div> -->
       </div>
     </section>
 
@@ -320,8 +312,18 @@
             <img
               src="./src/assets/images/test-case-logo.webp"
               style="height: 200px; width: 200px"
-            />
+            /> 
             <div class="project-name">Test Cases</div>
+          </div>
+        </a>
+
+        <a href="./src/categories/HTML/live-pro-page.html">
+          <div class="project-card">
+            <img
+              src="./src/assets/images/live-project-img.png"
+              style="height: 200px; width: 200px"
+            />
+            <div class="project-name">Live Project</div>
           </div>
         </a>
       </div>
@@ -340,7 +342,7 @@
                 target="_blank"
                 class="social-link"
                 ><img
-                  src="./src/assets/images/icons8-linkedin-96.png"
+                  src="./src/assets/images/linkdin-removebg-preview.png"
                   alt="LinkedIn"
                   style="height: 35px; width: 35px"
               /></a>
@@ -377,5 +379,20 @@
         </div>
       </footer>
     </section>
+    <script>
+       // Script for Menu Button //
+
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+
+      // Toggle hamburger ↔ close icon
+      menuBtn.innerHTML = navLinks.classList.contains("show")
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+    });
+    </script>
   </body>
 </html>
