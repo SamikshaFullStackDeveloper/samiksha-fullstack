@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logic Flip</title>
+    <link
+      rel="stylesheet"
+      href="../../../src/categories/CSS/logic-flip-game.css"
+    />
+  </head>
+  <body>
+    <!-- Start Screen -->
+    <div class="start-screen" id="startScreen">
+      <div class="start-box">
+        <h1>💡 Logic Flip</h1>
+        <p>Sharpen your memory & have fun!</p>
+        <button id="startBtn">Let's Start</button>
+      </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div class="game-container hidden" id="gameContainer">
+      <h1>Logic Flip</h1>
+      <div class="stats">
+        <div>⏱ Time: <span id="time">0s</span></div>
+        <div>🎯 Moves: <span id="moves">0</span></div>
+        <div>🏆 Score: <span id="score">0</span></div>
+      </div>
+
+      <div class="board" id="board"></div>
+
+      <p id="message">Click any card to start!</p>
+
+      <div class="buttons">
+        <button id="newGame">🔁 New Game</button>
+        <button id="pauseBtn">⏸ Pause</button>
+      </div>
+    </div>
+
+    <script>
+      // -------------------- Variables --------------------
+      const startBtn = document.getElementById("startBtn");
+      const startScreen = document.getElementById("startScreen");
+      const gameContainer = document.getElementById("gameContainer");
+      const board = document.getElementById("board");
+      const movesDisplay = document.getElementById("moves");
+      const scoreDisplay = document.getElementById("score");
+      const timeDisplay = document.getElementById("time");
+      const message = document.getElementById("message");
+      const newGameBtn = document.getElementById("newGame");
+      const pauseBtn = document.getElementById("pauseBtn");
+
+      let cards = ["🍎", "🍌", "🍇", "🥝", "🍓", "🍋", "🍒", "🍉"];
+      let grid = [];
+      let firstCard = null;
+      let secondCard = null;
+      let moves = 0;
+      let score = 0;
+      let timer = 0;
+      let gameInterval = null;
+      let paused = false;
+
+      // -------------------- Functions --------------------
+
+      // Start Game
+      startBtn.addEventListener("click", () => {
+        startScreen.classList.add("hidden");
+        gameContainer.classList.remove("hidden");
+        startGame();
+      });
+
+      // Create new shuffled board
+      function startGame() {
+        grid = [...cards, ...cards].sort(() => Math.random() - 0.5); // shuffle
+        board.innerHTML = "";
+        for (let i = 0; i < grid.length; i++) {
+          const card = document.createElement("div");
+          card.classList.add("card");
+          card.dataset.value = grid[i];
+          card.innerText = "?";
+          board.appendChild(card);
+        }
+        resetStats();
+        addCardListeners();
+      }
+
+      // Reset stats
+      function resetStats() {
+        moves = 0;
+        score = 0;
+        timer = 0;
+        movesDisplay.textContent = moves;
+        scoreDisplay.textContent = score;
+        timeDisplay.textContent = timer + "s";
+        message.textContent = "Click any card to start!";
+        if (gameInterval) clearInterval(gameInterval);
+        gameInterval = setInterval(() => {
+          if (!paused) {
+            timer++;
+            timeDisplay.textContent = timer + "s";
+          }
+        }, 1000);
+      }
+
+      // Add click event to all cards using loop
+      function addCardListeners() {
+        const allCards = document.querySelectorAll(".card");
+        for (let i = 0; i < allCards.length; i++) {
+          allCards[i].addEventListener("click", () => flipCard(allCards[i]));
+        }
+      }
+
+      // Flip card logic
+      function flipCard(card) {
+        if (paused || card.innerText !== "?") return;
+
+        card.innerText = card.dataset.value;
+        if (!firstCard) {
+          firstCard = card;
+        } else {
+          secondCard = card;
+          moves++;
+          movesDisplay.textContent = moves;
+          checkMatch();
+        }
+      }
+
+      // Match checking
+      function checkMatch() {
+        if (firstCard.dataset.value === secondCard.dataset.value) {
+          score += 50;
+          scoreDisplay.textContent = score;
+          message.textContent = "Great! Keep finding matches!";
+          firstCard = null;
+          secondCard = null;
+        } else {
+          setTimeout(() => {
+            firstCard.innerText = "?";
+            secondCard.innerText = "?";
+            firstCard = null;
+            secondCard = null;
+          }, 800);
+        }
+      }
+
+      // Pause and Resume
+      pauseBtn.addEventListener("click", () => {
+        paused = !paused;
+        pauseBtn.textContent = paused ? "▶ Resume" : "⏸ Pause";
+        message.textContent = paused ? "Game paused" : "Keep playing!";
+      });
+
+      // New Game
+      newGameBtn.addEventListener("click", startGame);
+    </script>
+  </body>
+</html>

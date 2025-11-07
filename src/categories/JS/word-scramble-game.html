@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Scramble Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .game-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .score-container {
+            text-align: center;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .score-item {
+            background: #f0f0f0;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .score-item span {
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .word-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 2.5em;
+            letter-spacing: 8px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            word-break: break-all;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hint {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+            min-height: 24px;
+        }
+
+        .input-container {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 3px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.2em;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .check-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .check-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .skip-btn {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        .skip-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .refresh-btn {
+            background: #4ade80;
+            color: white;
+        }
+
+        .refresh-btn:hover {
+            background: #22c55e;
+        }
+
+        .message {
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .message.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .message.correct {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .message.wrong {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stats {
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>🎮 Word Scramble</h1>
+        
+        <div class="score-container">
+            <div class="score-item">
+                Score: <span id="score">0</span>
+            </div>
+            <div class="score-item">
+                Streak: <span id="streak">0</span>🔥
+            </div>
+        </div>
+
+        <div class="word-display" id="scrambledWord"></div>
+        <div class="hint" id="hint"></div>
+
+        <div class="message" id="message"></div>
+
+        <div class="input-container">
+            <input type="text" id="userInput" placeholder="Type your answer..." >
+        </div>
+
+        <div class="button-container">
+            <button class="check-btn" onclick="checkAnswer()">Check</button>
+            <button class="refresh-btn" onclick="scrambleCurrentWord()">🔄 Shuffle</button>
+            <button class="skip-btn" onclick="skipWord()">Skip</button>
+        </div>
+
+        <div class="stats">
+            <p>Correct: <strong id="correct">0</strong> | Wrong: <strong id="wrong">0</strong></p>
+        </div>
+    </div>
+
+    <script>
+        const words = [
+            { word: "javascript", hint: "Programming language" },
+            { word: "computer", hint: "Electronic device" },
+            { word: "keyboard", hint: "Input device" },
+            { word: "mountain", hint: "Natural elevation" },
+            { word: "elephant", hint: "Large mammal" },
+            { word: "rainbow", hint: "Colorful arc in sky" },
+            { word: "guitar", hint: "Musical instrument" },
+            { word: "butterfly", hint: "Flying insect" },
+            { word: "chocolate", hint: "Sweet treat" },
+            { word: "telescope", hint: "Star viewing tool" },
+            { word: "pyramid", hint: "Ancient structure" },
+            { word: "volcano", hint: "Erupting mountain" },
+            { word: "orchestra", hint: "Musical ensemble" },
+            { word: "diamond", hint: "Precious gem" },
+            { word: "penguin", hint: "Antarctic bird" },
+            { word: "sandwich", hint: "Food between bread" },
+            { word: "universe", hint: "Everything that exists" },
+            { word: "thunder", hint: "Sound after lightning" },
+            { word: "calendar", hint: "Date tracker" },
+            { word: "treasure", hint: "Hidden valuables" }
+        ];
+
+        let currentWord = {};
+        let score = 0;
+        let streak = 0;
+        let correct = 0;
+        let wrong = 0;
+
+        function scrambleWord(word) {
+            const arr = word.split('');
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr.join('');
+        }
+
+        function newWord() {
+            currentWord = words[Math.floor(Math.random() * words.length)];
+            let scrambled = scrambleWord(currentWord.word);
+            
+            // scrambled word is different from original
+            while (scrambled === currentWord.word && currentWord.word.length > 3) {
+                scrambled = scrambleWord(currentWord.word);
+            }
+            
+            document.getElementById('scrambledWord').textContent = scrambled;
+            document.getElementById('hint').textContent = `Hint: ${currentWord.hint}`;
+            document.getElementById('userInput').value = '';
+            document.getElementById('userInput').focus();
+            hideMessage();
+        }
+
+        function scrambleCurrentWord() {
+            let scrambled = scrambleWord(currentWord.word);
+            while (scrambled === currentWord.word && currentWord.word.length > 3) {
+                scrambled = scrambleWord(currentWord.word);
+            }
+            document.getElementById('scrambledWord').textContent = scrambled;
+        }
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById('userInput').value.toLowerCase().trim();
+            
+            if (!userAnswer) {
+                return;
+            }
+
+            if (userAnswer === currentWord.word) {
+                score += 10;
+                streak++;
+                correct++;
+                showMessage('🎉 Correct! Well done!', 'correct');
+                updateScore();
+                setTimeout(newWord, 1500);
+            } else {
+                streak = 0;
+                wrong++;
+                showMessage(`❌ Wrong! The answer was: ${currentWord.word}`, 'wrong');
+                updateScore();
+                setTimeout(newWord, 2500);
+            }
+        }
+
+        function skipWord() {
+            streak = 0;
+            showMessage(`Skipped! The answer was: ${currentWord.word}`, 'wrong');
+            setTimeout(newWord, 2000);
+        }
+
+        function showMessage(text, type) {
+            const messageEl = document.getElementById('message');
+            messageEl.textContent = text;
+            messageEl.className = `message show ${type}`;
+        }
+
+        function hideMessage() {
+            const messageEl = document.getElementById('message');
+            messageEl.className = 'message';
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+            document.getElementById('streak').textContent = streak;
+            document.getElementById('correct').textContent = correct;
+            document.getElementById('wrong').textContent = wrong;
+        }
+
+        // Allow Enter key to check answer
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+
+        // Initialize game
+        newWord();
+    </script>
+</body>
+</html>
